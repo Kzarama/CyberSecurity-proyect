@@ -18,4 +18,5 @@ public class MensajesChat extends Observable {
 		this.setChanged();
 		this.notifyObservers(this.getMensaje());
 	}
+	
 }

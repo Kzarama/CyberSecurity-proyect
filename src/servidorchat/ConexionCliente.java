@@ -9,15 +9,12 @@ import java.util.Observer;
 
 public class ConexionCliente extends Thread implements Observer {
 
-	private Socket socket;
 	private MensajesChat mensajes;
 	private DataInputStream entradaDatos;
 	private DataOutputStream salidaDatos;
 
 	public ConexionCliente(Socket socket, MensajesChat mensajes) {
-		this.socket = socket;
 		this.mensajes = mensajes;
-
 		try {
 			entradaDatos = new DataInputStream(socket.getInputStream());
 			salidaDatos = new DataOutputStream(socket.getOutputStream());
@@ -30,7 +27,6 @@ public class ConexionCliente extends Thread implements Observer {
 		String mensajeRecibido;
 		boolean conectado = true;
 		mensajes.addObserver(this);
-
 		while (conectado) {
 			try {
 				mensajeRecibido = entradaDatos.readUTF();
@@ -53,4 +49,5 @@ public class ConexionCliente extends Thread implements Observer {
 		} catch (IOException ex) {
 		}
 	}
+	
 }
