@@ -141,7 +141,6 @@ public class ClienteChat extends JFrame {
 			try {
 				String message = entradaDatos.readUTF();
 				String user = message.substring(0, message.indexOf(':'));
-				System.out.println(message.substring(message.indexOf(':')+2));
 				String msg = desencriptar(message.substring(message.indexOf(':') + 2));
 				mensajesChat.append(user + ": " + msg + System.lineSeparator());
 			} catch (IOException ex) {
